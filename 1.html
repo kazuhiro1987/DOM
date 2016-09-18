@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+function nowyElement(){
+	var element = document.createElement("li");
+	var tekst = document.createTextNode("Witaj Świecie");
+	element.appendChild(tekst);
+
+	var lista = document.getElementById("lista");
+	lista.insertBefore(element, lista.childNodes[0]);
+}
+function usunElement(){
+	var p = document.getElementById('lista'); //pobieramy nasz paragraf
+	var element = p.getElementsByTagName("li")[0];
+	p.removeChild(element);
+
+}
+document.addEventListener('DOMContentLoaded', function(){
+	document.getElementById('dodaj').addEventListener('click', nowyElement);
+	document.getElementById('usun').addEventListener('click', usunElement);
+});
+</script>
+</head>
+<body>
+<button id="dodaj">Dodaj</button>
+<button id="usun">Usuń</button>
+<ul id="lista">
+	<li>Kawa</li>
+	<li>Herbata</li>
+	<li>Ciastka</li>
+</ul>
+</body>
+</html>
